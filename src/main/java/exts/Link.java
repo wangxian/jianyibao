@@ -5,7 +5,7 @@ package exts;
 * 分页导航 通用类 暂时提供了5中通用的分页方法；<br />
 * 用法：Link link = new Link('当第几页', '总数据量', '分页的url', '每页显示的数据数', '每次显示的页数');<br />
 * 类初始化后：String linkstr = link->show(3);<br />
-* by 木頭, 从ePHP Link.class转化而来<br />
+* by 木頭, 从ePHP Link.class移植过来<br />
 +------------------------------------------------------------------------------<br />
 * @version 2.6
 * @author WangXian
