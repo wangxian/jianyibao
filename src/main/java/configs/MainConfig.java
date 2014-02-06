@@ -38,7 +38,7 @@ public class MainConfig extends JFinalConfig {
 		// 支持ehCache
 		// me.add(new EhCachePlugin());
 		
-		C3p0Plugin c3p0Plugin = new C3p0Plugin("jdbc:mysql://127.0.0.1/sdtdance", "root", "111111");
+		C3p0Plugin c3p0Plugin = new C3p0Plugin("jdbc:mysql://127.0.0.1/sdtdance?useUnicode=true&characterEncoding=utf8", "root", "111111");
 		me.add(c3p0Plugin);
 		
 		ActiveRecordPlugin arp = new ActiveRecordPlugin(c3p0Plugin);
