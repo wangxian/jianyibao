@@ -45,7 +45,7 @@ public class Link
 	 * @param pagenum 每页数据数
 	 * @param opage 每次显示的页码数, 有些分页样式无效。
 	 */
-	public Link(int cpage, int totaldata, String url, int pagenum, int opage)
+	public Link(int cpage, int totaldata, String url, double pagenum, int opage)
 	{
 		this.cpage = cpage;
 		this.totalpage = (int) (totaldata > 0 ? Math.ceil( totaldata / pagenum ) : 1);

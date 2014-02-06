@@ -21,11 +21,11 @@ public class MenusConfig {
 		System.out.println("menusconfig init.....");
 		
 		// 添加菜单
-		Menu news = new Menu("news", "新闻管理");
+		Menu news = new Menu("rights", "新闻管理");
 		news.addSubMenu(
 			new SubMenu("新闻管理")
-			.addSubMenu("list", "新闻-列表")
-			.addSubMenu("add", "新闻-添加")
+			.addSubMenu("sysuserMgr", "新闻-列表")
+			.addSubMenu("sysuserAdd", "新闻-添加")
 		).addAction("list", "新闻-列表")
 		.addAction("add", "新闻-添加");
 		menus.add(news);

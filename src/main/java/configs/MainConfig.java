@@ -6,7 +6,11 @@ import models.SYSUser;
 import com.jfinal.config.*;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
+import com.jfinal.render.FreeMarkerRender;
 import com.jfinal.render.ViewType;
+
+import exts.HTML;
+import freemarker.template.TemplateModelException;
 
 public class MainConfig extends JFinalConfig {
 	
@@ -49,6 +53,18 @@ public class MainConfig extends JFinalConfig {
 		arp.addMapping("admin_sysuser", SYSUser.class);
 		arp.addMapping("admin_sysgroup", SYSGroup.class);
 		arp.addMapping("admin_sysrights", SYSRights.class);
+	}
+	
+	/**
+	 * 配置启动后的操作
+	 */
+	@Override
+	public void afterJFinalStart() {
+		try {
+			FreeMarkerRender.getConfiguration().setSharedVariable("HTML", new HTML());
+		} catch (TemplateModelException e) {
+			System.out.println(e.getMessage());
+		}
 	}
 
 	/**

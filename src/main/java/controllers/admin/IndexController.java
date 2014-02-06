@@ -2,9 +2,11 @@ package controllers.admin;
 
 import interceptors.SessionInterceptor;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import models.SYSGroup;
 import models.SYSRights;
 import models.SYSUser;
@@ -14,6 +16,7 @@ import com.jfinal.aop.Before;
 import com.jfinal.aop.ClearInterceptor;
 import com.jfinal.aop.ClearLayer;
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Db;
 
 import configs.MenusConfig;
 import exts.MD5;
@@ -142,6 +145,10 @@ public class IndexController extends Controller {
 					text = "{\"state\":10020, \"message\":\"密码错误\"}";
 				} else {
 					text = "{\"state\":200, \"message\":\"\"}";
+					
+					// 更新登录次数和最后登录时间
+					int timestamp = (int) Math.ceil(System.currentTimeMillis()/1000);
+					Db.update("update admin_sysuser set logincount=logincount+1,lastlogintime=? where id=?", timestamp, user.getInt("id"));
 					
 					// 查询 group 信息
 					SYSGroup group = SYSGroup.dao.findById(user.getInt("group_id"));
