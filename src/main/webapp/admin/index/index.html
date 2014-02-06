@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="index" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理中心</title>
+<link href="/css/admin.css" rel="stylesheet" type="text/css" />
+<link rel="icon" type="image/png" href="/img/favicon.png" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/admin.js"></script>
+<script>
+$(function(){
+    admin.index.init();
+});
+</script>
+</head>
+<body>
+<div id="wrapper">
+    <div id="header">
+        <div class="logo"></div>
+        <div class="menu">
+          <#list menu1 as menu>
+          <a href="#" class="item_menu">${menu}</a>
+          </#list>
+        </div>
+        <div class="log-info">
+            <span>欢迎回来：${user.realname}</span>
+            <em>|</em>
+            <a href="/freedom/logout">退出系统</a>
+            <em>|</em>
+            <a href="javascript:void(0)" onclick="javascript:parent.mainframe.location.reload();">刷新主窗口</a>
+            <a class="back-home" href="/" target="_blank">返回首页</a>
+        </div>
+    </div>
+    <div id="container">
+        <div class="sidebar">
+          <#list menu2 as menu21>
+          <div class="sub-menu">
+            <#list menu21 as key>
+
+              <#if key_index == 0>
+              <h3 class="sidebar-title-top">${key}</h3>
+              <#else>
+              <h3 class="sub-menu-titleline">${key}</h3>
+              </#if>
+
+              <#list menu3.get(key) as item>
+                <div class="sub-menu-info">
+                  <a href="${item.get(0)}" target="mainframe">${item.get(1)}</a>
+                </div>
+              </#list>
+
+            </#list>
+          </div>
+          </#list>
+        </div>
+        <div class="main">
+            <iframe id="mainframe" width="100%" name="mainframe" frameborder="0" src="javascript:void(0);"  scrolling="yes"></iframe>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
