@@ -14,7 +14,6 @@ import interceptors.SessionInterceptor;
 import com.google.gson.Gson;
 import com.jfinal.aop.Before;
 import com.jfinal.plugin.activerecord.Page;
-import com.sun.media.jai.codec.PNGEncodeParam.RGB;
 
 import configs.MenusConfig;
 import exts.Link;
@@ -40,7 +39,8 @@ public class RightsController extends BaseController {
 		// 更新权限
 		if(getPara("submit") != null) {
 			Map<String, String[]> rt = getParaMap();
-			boolean f = SYSRights.dao.deleteByGid(gid);
+//			boolean f = 
+					SYSRights.dao.deleteByGid(gid);
 			for(Entry<String, String[]> x: rt.entrySet()) {
 				String key = x.getKey();
 				if( !"gid".equals(key) && !"submit".equals(key) ) {

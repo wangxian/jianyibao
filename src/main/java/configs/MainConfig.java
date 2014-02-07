@@ -14,8 +14,11 @@ import freemarker.template.TemplateModelException;
 
 public class MainConfig extends JFinalConfig {
 	
-	public static final String DEVELOP_ENV = System.getenv("DEVELOP_ENV");
-	
+	/**
+	 * 开发环境为："DEV", 正式环境：""
+	 */
+	public static String DEVELOP_ENV;
+
 	/**
 	 * 配置常量
 	 */
@@ -23,6 +26,11 @@ public class MainConfig extends JFinalConfig {
 		me.setError404View("/404.html");
 		me.setError500View("/500.html");
 		me.setViewType(ViewType.FREE_MARKER);
+		
+		// 
+		String devENV = System.getenv("DEVELOP_ENV2");
+		if(devENV == null) devENV = "";
+		MainConfig.DEVELOP_ENV = devENV;
 		
 		// 开发环境
 		if(MainConfig.DEVELOP_ENV.equals("DEV")) {
