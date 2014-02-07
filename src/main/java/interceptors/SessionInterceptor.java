@@ -6,13 +6,19 @@ import java.util.HashMap;
 import com.jfinal.aop.Interceptor;
 import com.jfinal.core.ActionInvocation;
 
+import configs.MainConfig;
+
 public class SessionInterceptor implements Interceptor {
 
-	public void intercept(ActionInvocation ai) {
+	public void intercept(ActionInvocation ai) { 
 		Object sysuser = ai.getController().getSessionAttr("sysuser");
 		if (sysuser == null) {
-			// ai.getController().render("index/login.html");
-			ai.getController().redirect("/freedom/login");
+			if( MainConfig.DEVELOP_ENV.equals("DEV") && !ai.getController().getClass().getSimpleName().equals("IndexController") ) {
+				// 测试环境不跳转
+				ai.invoke();
+			} else {
+				ai.getController().redirect("/freedom/login");
+			}
 		} else {
 			// System.out.println(ai.getMethodName());
 			// System.out.println(ai.getControllerKey());
@@ -26,9 +32,8 @@ public class SessionInterceptor implements Interceptor {
 				controllerName = "index";
 
 			// System.out.println(controllerName + "===" + methodName);
-			HashMap<String, ArrayList<String>> rights = ai.getController()
-					.getSessionAttr("rights");
-			// && !
+			HashMap<String, ArrayList<String>> rights = ai.getController().getSessionAttr("rights");
+
 			if (!rights.isEmpty() && (controllerName == "index" || rights.get(controllerName)
 				.contains(methodName))) {
 				
@@ -41,6 +46,7 @@ public class SessionInterceptor implements Interceptor {
 			}
 
 		}
+		
 	}
 
 }

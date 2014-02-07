@@ -538,3 +538,9 @@ a.delete{padding-left:18px; height:12px; background-position:-497px -36px;}
 /*权限管理*/
 #group_list{ background: url("admin/line_x.gif") repeat-x scroll center bottom transparent;margin:10px; padding:10px;}
 #info_list td{ background: url("admin/line_x.gif") repeat-x scroll center bottom transparent;padding:10px 0px;}
+
+.links a{text-decoration:none;color:#0063e3;border:solid 1px #DDDDDD;margin-right:2px;padding:3px 6px;}
+.links a:visited{color: #5C0F01;}
+.links a:hover{border:solid 1px #999;color:red;}
+.links .current{padding:3px 6px;color:#FFFFFF;background-color:#036cb4;font-weight:bold;border:1px solid #DDDDDD;}
+.links .disabled{color:#999;padding:3px 4px;border:solid 1px #DDDDDD;}
