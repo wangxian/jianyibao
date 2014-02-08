@@ -3,6 +3,7 @@ package configs;
 import com.jfinal.config.Routes;
 
 import controllers.admin.IndexController;
+import controllers.admin.NewsController;
 import controllers.admin.RightsController;
 
 public class AdminRoutes extends Routes {
@@ -14,6 +15,7 @@ public class AdminRoutes extends Routes {
 //		this.add("/admin/logout", IndexController.class, "/admin");
 		
 		this.add("/freedom/rights", RightsController.class, "/admin");
+		this.add("/freedom/news", NewsController.class, "/admin");
 	}
 
 }

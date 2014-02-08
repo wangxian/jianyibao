@@ -33,7 +33,7 @@ public class RightsController extends BaseController {
 	@SuppressWarnings("unchecked")
 	public void mgr(){
 		// this.renderText("user_list==="+ getAttr("controllerName") +"/" + getAttr("methodName") );
-		int gid = getParaToInt("gid", -100);
+		int gid = getParaToInt("gid", 1);
 		Gson gson = new Gson();
 		
 		// 更新权限

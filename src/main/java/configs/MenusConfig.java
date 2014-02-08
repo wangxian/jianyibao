@@ -21,13 +21,15 @@ public class MenusConfig {
 		System.out.println("menusconfig init.....");
 		
 		// 添加菜单
-		Menu news = new Menu("rights", "新闻管理");
+		Menu news = new Menu("news", "新闻管理");
 		news.addSubMenu(
 			new SubMenu("新闻管理")
-			.addSubMenu("sysuserMgr", "新闻-列表")
-			.addSubMenu("sysuserAdd", "新闻-添加")
+			.addSubMenu("list", "新闻-列表")
+			.addSubMenu("add", "新闻-添加")
 		).addAction("list", "新闻-列表")
-		.addAction("add", "新闻-添加");
+		.addAction("add", "新闻-添加")
+		.addAction("edit", "新闻-编辑")
+		.addAction("del", "新闻-删除");
 		menus.add(news);
 			
 		
@@ -51,9 +53,9 @@ public class MenusConfig {
 		.addAction("sysuserDel", "管理员-删除")
 		.addAction("sysuserModi", "管理员-修改")
 		
-		.addAction("sysuserAdd", "管理组-添加")
-		.addAction("groupMgr", "管理组-添加")
-		.addAction("groupModi", "管理组-添加")
+		.addAction("groupAdd", "管理组-添加")
+		.addAction("groupMgr", "管理组-列表")
+		.addAction("groupModi", "管理组-修改")
 		.addAction("groupDel", "管理组-删除");
 		
 		// 保存
