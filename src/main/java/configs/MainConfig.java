@@ -28,7 +28,7 @@ public class MainConfig extends JFinalConfig {
 		me.setViewType(ViewType.FREE_MARKER);
 		
 		// 
-		String devENV = System.getenv("DEVELOP_ENV2");
+		String devENV = System.getenv("DEVELOP_ENV");
 		if(devENV == null) devENV = "";
 		MainConfig.DEVELOP_ENV = devENV;
 		
