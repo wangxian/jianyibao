@@ -26,10 +26,9 @@ public class MainConfig extends JFinalConfig {
 		me.setError404View("/404.html");
 		me.setError500View("/500.html");
 		me.setViewType(ViewType.FREE_MARKER);
-		
-		// 
+
 		String devENV = System.getenv("DEVELOP_ENV");
-		if(devENV == null) devENV = "";
+        if(devENV == null) devENV = "";
 		MainConfig.DEVELOP_ENV = devENV;
 		
 		// 开发环境
